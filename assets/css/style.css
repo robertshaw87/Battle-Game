@@ -1,0 +1,133 @@
+/* gif as a background image, and reduce opacity of entire page to highlight background more */
+body {
+    background-image: url("../images/background.jpg");
+    background-position: center; 
+    background-repeat: repeat;
+    opacity: .9;
+}
+
+/* header font and background (opacity set to .8) */
+header {
+    font-family: 'Yeon Sung', cursive;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* used for crystal text, but not harmful to the rest of the page */
+.container {
+    position: relative;
+    text-align: center;
+}
+
+/* center the text in the middle of the image */
+.centered {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* google font for crystal core number */
+#crystal-core-text {
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 60px;
+}
+
+/* set an animation for the crystal core */
+#crystal-core  #crystal-img {
+    animation-name: crystal-anim;
+    animation-duration: 6s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes crystal-anim {
+    0% {
+        transform: rotate(0deg);
+    }
+    25%{
+        transform: rotate(90deg);
+    }
+    50% {
+        transform: rotate(180deg);
+    }
+    75%{
+        transform: rotate(270deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+  }
+
+/* sets font for gems, currently unused */
+.gem {
+    font-family: 'East Sea Dokdo', cursive;
+    font-size: 40px;
+}
+
+/* set an animation for when the gems spawn/ are finished being moused over */
+.gem .gem-image {
+    animation-name: gem-spawn;
+    animation-duration: .6s;
+}
+
+@keyframes gem-spawn {
+    0% {
+        transform: translateY(10%);
+    }
+    60% {
+        transform: translateY(-10%);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+
+/* animation for when gems are moused over */
+.gem-image:hover {
+    animation-name: gem-hover;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes gem-hover {
+    0% {
+        transform: rotateY(0deg);
+        opacity: .7;
+    }
+    25%{
+        opacity: .9;
+    }
+    50% {
+        transform: rotateY(180deg);
+        opacity: .7;
+    }
+    75%{
+        opacity: .9;
+    }
+    100% {
+        opacity: .7;
+        transform: rotateY(360deg);
+    }
+  }
+
+  /* sets font and translucent background for messages to the player */
+#player-message {
+    background-color: rgba(0, 0, 0, 0.5);
+    font-family: 'Yeon Sung', cursive;
+    font-size: 26px;
+    position: relative;
+}
+
+/* background and font for the score card */
+.score-card {
+    background-color: rgba(0, 0, 0, 0.3);
+    font-family: 'Stylish', sans-serif;
+    font-size: 30px;
+    line-height: 25px;
+}
+
+/* make the reset/give up button fit the rest of the page in terms of color scheme */
+#reset-button {
+    font-family: 'Stylish', sans-serif;
+    background-color: rgba(0, 0, 0, 0.5);
+}
