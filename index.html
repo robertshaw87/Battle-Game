@@ -16,36 +16,44 @@
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo|Stylish|Yeon+Sung" rel="stylesheet">
 
-  <title>Crystal Overload</title>
+  <title>Triwizard Duel!</title>
 </head>
 
 <body>
   <!-- header -->
   <header class="border-bottom border-secondary" id="header">
-    <h1 class="container text-center p-3 pt-4 text-white mr-auto ml-auto">Crystal Overload</h1>
+    <h1 class="container text-center p-3 pt-4 text-white mr-auto ml-auto">Triwizard Dueling Arena</h1>
   </header>
 
-  <!-- crystal core image and value -->
   <main class="container text-center">
+  <!-- player character display -->
+  <div class="row mt-5">
+    <div class="col-md-4 col-sm-5 col-12" id="player-character"></div>
+    <div class="col"></div>
+    <!-- duel button -->
+    <button type="button" class="btn btn-dark btn-lg col-md-2 col-6" id="reset-button">Duel!</button>
+    <div class="col"></div>
+    <!-- adversary character display -->
+    <div class="col-md-4 col-sm-5 col-12" id="adversary-character"></div>
+  </div>
+
+  <!-- area for messages to the player -->
   <div class="row mt-5">
     <div class="col"></div>
-    <div class="col-md-3 col-sm-4 col-5" id="crystal-core">
-      <img id="crystal-img" src="assets/images/crystal.png" alt="Crystal Core" style="width:100%;">
-      <div class="centered"><h2 id="crystal-core-text">0</h1></div>
-    </div>
+    <div class="col-md-6 col-12" id="player-message"></div>
     <div class="col"></div>
   </div>
 
-<!-- area to generate gems -->
+  <!-- area to store enemies that you've yet to fight -->
   <div class="row mt-5">
-      <div class="col-md-2 col-0"></div>
-      <div class="col-md-8 col-12">
-        <div class="row" id="gem-row">
+    <div class="col"></div>
+    <div class="col-md-8 col-12">
+      <div class="row" id="character-bank">
 
-        </div>
       </div>
-      <div class="col-md-2 col-0"></div>
     </div>
+    <div class="col"></div>
+  </div>
 
 <!-- messages to the player and wins/losses -->
   <div class="row mt-5">
