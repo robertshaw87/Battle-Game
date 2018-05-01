@@ -142,22 +142,22 @@ $(document).ready(function() {
     $("#character-bank").on("click", ".char-button", function(){
         if (player.character === false){
             player.character=charSelect.bank[parseInt($(this).attr("value"))];
+            player.health = player.character.health;
+            player.power = player.character.power;
             player.updateDisplay();
             charSelect.bank.splice(parseInt($(this).attr("value")), 1);
             charSelect.updateDisplay();
-            player.health = player.character.health;
-            player.power = player.character.power;
             playerMessage("Select your opponent!");
         } else if (adversary.character === false) {
             console.log(parseInt($(this).attr("value")));
             adversary.character=charSelect.bank[parseInt($(this).attr("value"))];
+            adversary.health = player.character.health;
+            adversary.defense = player.character.defense;
             adversary.updateDisplay();
             charSelect.bank.splice(parseInt($(this).attr("value")), 1);
             charSelect.updateDisplay();
-            adversary.health = player.character.health;
-            adversary.defense = player.character.defense;
             console.log(player);
-            playerMessage("Fight!");
+            playerMessage("May the best wizard win!");
             addDuelBtn();
         }
     });
