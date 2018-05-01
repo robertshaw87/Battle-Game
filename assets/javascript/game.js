@@ -105,12 +105,14 @@ $(document).ready(function() {
         return arr;
     }
 
+    // remove the dueal button
     function removeDuelBtn(){
-        $("duel-area").empty();
+        $("#duel-area").empty();
     }
 
+    // add a duel button between the player and the opponent
     function addDuelBtn(){
-        $("#duel-area").html('<button type="button" class="btn btn-dark btn-lg p-3 pr-5 pl-5" id="duel-button"><h2>Duel!</h2></button>');
+        $("#duel-area").html('<button type="button" class="btn btn-dark btn-lg p-3 pr-5 pl-5" id="duel-button">Duel!</button>');
     }
 
     // displays your current wins and losses
@@ -119,6 +121,7 @@ $(document).ready(function() {
         $("#losses-text").text(losses);
     }
 
+    // output the str onto the player message area
     function playerMessage(str) {
         $("#player-message").text(str);
     }
@@ -135,10 +138,13 @@ $(document).ready(function() {
         player.updateDisplay();
         adversary.updateDisplay();
         removeDuelBtn();
+        playerMessage("Select your Champion!");
     }
 
     gameReset();
 
+    // if player hasn't picked a character, pick a character from the bank
+    // if the player hasn't picked an opponent, pick an opponent
     $("#character-bank").on("click", ".char-button", function(){
         if (player.character === false){
             player.character=charSelect.bank[parseInt($(this).attr("value"))];
@@ -149,19 +155,32 @@ $(document).ready(function() {
             charSelect.updateDisplay();
             playerMessage("Select your opponent!");
         } else if (adversary.character === false) {
-            console.log(parseInt($(this).attr("value")));
             adversary.character=charSelect.bank[parseInt($(this).attr("value"))];
             adversary.health = player.character.health;
             adversary.defense = player.character.defense;
             adversary.updateDisplay();
             charSelect.bank.splice(parseInt($(this).attr("value")), 1);
             charSelect.updateDisplay();
-            console.log(player);
             playerMessage("May the best wizard win!");
             addDuelBtn();
         }
     });
 
+    // have the player fight the opponent upon clicking the duel button
+    $("#duel-area").on("click", "#duel-button", function(){
+        player.health -= adversary.defense;
+        adversary.health -= player.power;
+        player.power += player.character.power;
+        if (player.health <= 0){
+            playerMessage("You lost the duel! You came in " + (charSelect.bank.length +2) + " place in the dueling event!");
+            var tempReset = setTimeout(gameReset, 2000);
+            var tempMessage = setTimeout(gameReset, 2000);
+        }
+        adversary.updateDisplay();
+        player.updateDisplay();
+    });
+
+    // reset button
     $("#reset-button").on("click", function(){
         losses += 1;
         gameReset();
