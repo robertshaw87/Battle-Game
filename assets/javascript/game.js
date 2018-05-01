@@ -52,7 +52,7 @@ $(document).ready(function() {
     var player={
         character: false,
         resetDisplay: function(){
-
+            $("#player-character")
         }
     };
     var opponent=false;
