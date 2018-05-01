@@ -67,28 +67,28 @@ $(document).ready(function() {
         }
     };
 
-    var characters={
+    var charSelect={
         bank: shuffleArr(champions.slice()),
         resetDisplay: function(){
-
+            $("#character-bank").empty();
         },
         updateDisplay: function(){
             if (this.bank.length <= 0){
                 $("#character-bank").empty();
             } else{
                 for (var i=0; i<this.bank.length; i++){
-                    $("#character-bank").append(this.bank[i].image+'<p class="bank-char centered-top m-0">'+this.character.name+'</p>'+'<p class="bank-char centered-bottom m-0">'+this.health+'</p>');
+                    $("#character-bank").append('<div class="col-md-3 col-6 char-button p-0" value='+i+'>'+this.bank[i].image+'<div class="bank-char text-light">'+this.bank[i].name+'</div></div>');
                 }
             }
         }
     }
-    console.log(characters.bank);
-    
-    console.log(characters.bank);
+    console.log(charSelect.bank);
     player.character=cedric;
     player.updateDisplay();
     adversary.character=fleur;
     adversary.updateDisplay();
+    charSelect.updateDisplay();
+
 
     // returns a random integer between 0 and the argument(inclusive)
     function randInt(maxInt){
@@ -117,7 +117,10 @@ $(document).ready(function() {
 
     function gameReset() {
         updateWinLoss();
-        $("#character-bank")
+        charSelect.bank=shuffleArr(champions.slice());
+        charSelect.updateDisplay();
+        player.character=false;
+        adversary.character=false;
     }
 
 

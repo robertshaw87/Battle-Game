@@ -49,15 +49,24 @@ header {
 }
 
 .active-char{
+    font-family: 'Tangerine', cursive;
     font-size: 60px;
 }
 
 .bank-char {
-    font-size: 50px;
+    font-family: 'Tangerine', cursive;
+    font-size: 40px;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
-#player-character, #adversary-character {
-    font-family: 'Tangerine', cursive;
+.char-button{
+    position: relative;
+}
+
+#player-character, #adversary-character, #character-bank {
     position: relative;
 }
 
