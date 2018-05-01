@@ -1,12 +1,12 @@
-# Crystal Game
+# Battle Game
 
 The crystal core is overloading! Use the gems to syphon power from it until it stabilizes. Be care not to overdraw the energy! If the power level drops below 0, the crystal core will be unsalvageable.
 
 ## Getting Started
 
-Open up the [project link](https://robertshaw87.github.io/Crystal-Game/) and you should be able to see the example webpage shown below:
+Open up the [project link](https://robertshaw87.github.io/Battle-Game/) and you should be able to see the example webpage shown below:
 
-![Crystal Game](assets/images/readme-game.png "Crystal Game")
+![Battle Game](assets/images/readme-game.png "Battle Game")
 
 Simply click one of the gems to reduce the power of the crystal. Your goal is to reduce the crystal to 0 power without letting it fall into the negatives. Beware! The gems will syphon a random amount of power each time you reset!
 ### Prerequisites
