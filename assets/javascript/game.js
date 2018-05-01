@@ -7,9 +7,7 @@ $(document).ready(function() {
     // initialize champions
     var harry = {
         name:"Harry Potter",
-        maxHealth: 200,
         health: 200,
-        basePower: 5,
         power: 5,
         defense: 10,
         image: '<img class="char-image" id="harry-img" src="assets/images/harry-potter.png" alt="Harry Potter" style="width:100%;">'
@@ -17,9 +15,7 @@ $(document).ready(function() {
 
     var cedric = {
         name:"Cedric Diggory",
-        maxHealth: 200,
         health: 200,
-        basePower: 5,
         power: 5,
         defense: 10,
         image: '<img class="char-image" id="cedric-img" src="assets/images/cedric-diggory.png" alt="Cedric Diggory" style="width:100%;">'
@@ -27,9 +23,7 @@ $(document).ready(function() {
 
     var fleur = {
         name:"Fleur Delacour",
-        maxHealth: 200,
         health: 200,
-        basePower: 5,
         power: 5,
         defense: 10,
         image: '<img class="char-image" id="fleur-img" src="assets/images/fleur-delacour.png" alt="Fleur Delacour" style="width:100%;">'
@@ -37,9 +31,7 @@ $(document).ready(function() {
 
     var viktor = {
         name:"Viktor Krum",
-        maxHealth: 200,
         health: 200,
-        basePower: 5,
         power: 5,
         defense: 10,
         image: '<img class="char-image" id="viktor-img" src="assets/images/viktor-krum.png" alt="Viktor Krum" style="width:100%;">'
@@ -47,19 +39,36 @@ $(document).ready(function() {
 
     // used to store the order of the champions, order will be randomized later
     var champions = [harry, cedric, fleur, viktor];
-    console.log(champions)
-
+    
+    // object used to store the player data and interact with the html
     var player={
         character: false,
+        health: 0,
+        power: 0,
         resetDisplay: function(){
             $("#player-character").empty();
         },
         updateDisplay: function(){
-            $("#player-character").html(this.character.image+'<p class="centered-top m-0">'+this.character.name+'</p>'+'<h3 class="centered-bottom">'+this.character.health+'</h3>');
+            $("#player-character").html(this.character.image+'<p class="centered-top m-0">'+this.character.name+'</p>'+'<p class="centered-bottom m-0">'+this.health+'</p>');
         }
     };
-    player.character=fleur;
+
+    // object used to store the current adversary and interact with the html
+    var adversary={
+        character: false,
+        health: 0,
+        power: 0,
+        resetDisplay: function(){
+            $("#adversary-character").empty();
+        },
+        updateDisplay: function(){
+            $("#adversary-character").html(this.character.image+'<p class="centered-top m-0">'+this.character.name+'</p>'+'<p class="centered-bottom m-0">'+this.health+'</p>');
+        }
+    };
+    player.character=cedric;
     player.updateDisplay();
+    adversary.character=fleur;
+    adversary.updateDisplay();
 
     // returns a random integer between 0 and the argument(inclusive)
     function randInt(maxInt){

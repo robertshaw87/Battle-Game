@@ -28,25 +28,28 @@ header {
     transform: translate(-50%, -50%);
 }
 
-.centered-top{
+.centered-top, .centered-bottom{
     position: absolute;
+    font-size: 60px;
+    width: 100%;
+    padding: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.centered-top{
     top:0px;
     left: 50%;
-    font-size: 45px;
-    font-weight: bold;
     transform: translate(-50%, 0%);
 }
 
 .centered-bottom{
-    position: absolute;
     bottom: 0px;
     left: 50%;
-    font-size: 80px;
     font-weight: bold;
     transform: translate(-50%, 0%);
 }
 
-#player-character {
+#player-character, #adversary-character {
     font-family: 'Tangerine', cursive;
     position: relative;
 }
