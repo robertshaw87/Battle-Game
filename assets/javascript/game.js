@@ -109,10 +109,12 @@ $(document).ready(function() {
     // remove the dueal button
     function removeDuelBtn(){
         $("#duel-area").empty();
+        $("#duel-area").removeClass("duel");
     }
 
     // add a duel button between the player and the opponent
     function addDuelBtn(){
+        $("#duel-area").addClass("duel");
         $("#duel-area").html('<button type="button" class="btn btn-dark btn-lg p-3 pr-5 pl-5" id="duel-button">Duel!</button>');
     }
 
@@ -177,7 +179,7 @@ $(document).ready(function() {
         if (player.health <= 0){
             losses += 1;
             playerMessage("You lost the duel! You came in " + placement[(charSelect.bank.length +1)] + " place in the dueling event!");
-            var tempReset = setTimeout(gameReset, 2000);
+            var tempReset = setTimeout(gameReset, 3000);
         // check if the player has defeated the adversary
         } else if (adversary.health <= 0){
             playerMessage("You won the duel! Select your next opponent!");
@@ -187,7 +189,7 @@ $(document).ready(function() {
             if (charSelect.bank.length <=0){
                 wins += 1;
                 playerMessage("You've defeated all the other champions and won the dueling event!");
-                var tempReset = setTimeout(gameReset, 2000);
+                var tempReset = setTimeout(gameReset, 3000);
             }
         }
         adversary.updateDisplay();

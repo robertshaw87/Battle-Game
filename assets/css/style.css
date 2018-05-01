@@ -28,6 +28,7 @@ header {
     transform: translate(-50%, -50%);
 }
 
+/* cheter the text in the middle of the top or bottom of the parent object */
 .centered-top, .centered-bottom{
     position: absolute;
     width: 100%;
@@ -48,11 +49,13 @@ header {
     transform: translate(-50%, 0%);
 }
 
+/* set the font on the player and opponent */
 .active-char{
     font-family: 'Tangerine', cursive;
     font-size: 60px;
 }
 
+/* set the font and minor stylings of characters left in the bank */
 .bank-char {
     font-family: 'Tangerine', cursive;
     font-size: 40px;
@@ -68,6 +71,34 @@ header {
 
 #player-character, #adversary-character, #character-bank {
     position: relative;
+}
+/* change the background color for the player character and opponent */
+#player-character .active-char {
+    background-color: rgba(0, 70, 0, 0.5);
+}
+
+#adversary-character .active-char {
+    background-color: rgba(70, 0, 0, 0.5);
+}
+
+/* animate the characters in the bank on hover */
+.char-button:hover {
+    animation-name: bank-char-anim;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    z-index: 10;
+}
+
+@keyframes bank-char-anim {
+    50% {
+        transform: scale(1.1);
+        background-color: rgba(150, 150, 150, 0.8);
+        
+    }
+    100% {
+        transform: scale(1);
+        background-color: rgba(0, 0, 0, 0.5);
+    }
 }
 
 /* sets font and translucent background for messages to the player */
@@ -92,7 +123,39 @@ header {
     background-color: rgba(0, 0, 0, 0.7);
 }
 
+/* styling for the duel button */
 #duel-button{
     font-family: 'Acme', sans-serif;
     font-size: 50px;
+}
+
+/* make the duel button change colors on hover */
+#duel-area #duel-button:hover {
+    animation-name: duel-anim;
+    animation-duration: 2s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes duel-anim {
+    25% {
+        background-color: rgba(80, 0, 80, 0.7);
+    }
+    50% {
+        background-color: rgba(0, 80, 80, 0.7);
+    }
+    75% {
+        background-color: rgba(80, 80, 0, 0.7);
+    }
+    100% {
+        background-color: rgba(80, 80, 80, 0.7);
+    }
+}
+
+.duel:hover {
+    background-image: url("../images/duel.gif");
+    background-position: 50% 0%; 
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-color: black;
+    opacity: .8;
 }
