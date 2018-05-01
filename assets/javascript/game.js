@@ -50,7 +50,11 @@ $(document).ready(function() {
             $("#player-character").empty();
         },
         updateDisplay: function(){
-            $("#player-character").html(this.character.image+'<p class="active-char centered-top m-0">'+this.character.name+'</p>'+'<p class="active-char centered-bottom m-0">'+this.health+'</p>');
+            if (this.character !== false){
+                $("#player-character").html(this.character.image+'<p class="active-char centered-top m-0">'+this.character.name+'</p>'+'<p class="active-char centered-bottom m-0">'+this.health+'</p>');
+            } else {
+                this.resetDisplay();
+            }
         }
     };
 
@@ -58,37 +62,32 @@ $(document).ready(function() {
     var adversary={
         character: false,
         health: 0,
-        power: 0,
+        defense: 0,
         resetDisplay: function(){
             $("#adversary-character").empty();
         },
         updateDisplay: function(){
-            $("#adversary-character").html(this.character.image+'<p class="active-char centered-top m-0">'+this.character.name+'</p>'+'<p class="active-char centered-bottom m-0">'+this.health+'</p>');
+            if (this.character !== false){
+                $("#adversary-character").html(this.character.image+'<p class="active-char centered-top m-0">'+this.character.name+'</p>'+'<p class="active-char centered-bottom m-0">'+this.health+'</p>');
+            } else {
+                this.resetDisplay();
+            }
         }
     };
 
+    // object used to store the list of potential characters
     var charSelect={
         bank: shuffleArr(champions.slice()),
         resetDisplay: function(){
             $("#character-bank").empty();
         },
         updateDisplay: function(){
-            if (this.bank.length <= 0){
-                $("#character-bank").empty();
-            } else{
-                for (var i=0; i<this.bank.length; i++){
-                    $("#character-bank").append('<div class="col-md-3 col-6 char-button p-0" value='+i+'>'+this.bank[i].image+'<div class="bank-char text-light">'+this.bank[i].name+'</div></div>');
-                }
+            this.resetDisplay();
+            for (var i=0; i<this.bank.length; i++){
+                $("#character-bank").append('<div class="col-md-3 col-6 char-button p-0" value='+i+'>'+this.bank[i].image+'<div class="bank-char text-light">'+this.bank[i].name+'</div></div>');
             }
         }
     }
-    console.log(charSelect.bank);
-    player.character=cedric;
-    player.updateDisplay();
-    adversary.character=fleur;
-    adversary.updateDisplay();
-    charSelect.updateDisplay();
-
 
     // returns a random integer between 0 and the argument(inclusive)
     function randInt(maxInt){
@@ -106,25 +105,69 @@ $(document).ready(function() {
         return arr;
     }
 
+    function removeDuelBtn(){
+        $("duel-area").empty();
+    }
+
+    function addDuelBtn(){
+        $("#duel-area").html('<button type="button" class="btn btn-dark btn-lg p-3 pr-5 pl-5" id="duel-button"><h2>Duel!</h2></button>');
+    }
+
     // displays your current wins and losses
     function updateWinLoss() {
         $("#wins-text").text(wins);
         $("#losses-text").text(losses);
     }
+
+    function playerMessage(str) {
+        $("#player-message").text(str);
+    }
+
     // game reset function
     // clear player character and adversaries
     // generate choices for player character
-
     function gameReset() {
         updateWinLoss();
         charSelect.bank=shuffleArr(champions.slice());
         charSelect.updateDisplay();
         player.character=false;
         adversary.character=false;
+        player.updateDisplay();
+        adversary.updateDisplay();
+        removeDuelBtn();
     }
 
+    gameReset();
 
+    $("#character-bank").on("click", ".char-button", function(){
+        if (player.character === false){
+            player.character=charSelect.bank[parseInt($(this).attr("value"))];
+            player.updateDisplay();
+            charSelect.bank.splice(parseInt($(this).attr("value")), 1);
+            charSelect.updateDisplay();
+            player.health = player.character.health;
+            player.power = player.character.power;
+            playerMessage("Select your opponent!");
+        } else if (adversary.character === false) {
+            console.log(parseInt($(this).attr("value")));
+            adversary.character=charSelect.bank[parseInt($(this).attr("value"))];
+            adversary.updateDisplay();
+            charSelect.bank.splice(parseInt($(this).attr("value")), 1);
+            charSelect.updateDisplay();
+            adversary.health = player.character.health;
+            adversary.defense = player.character.defense;
+            console.log(player);
+            playerMessage("Fight!");
+            addDuelBtn();
+        }
+    });
 
+    $("#reset-button").on("click", function(){
+        losses += 1;
+        gameReset();
+        playerMessage("You have forfeited the duel. Choose a new champion!");        
+    });
+    
     //     $("#gem-row").empty();
     //     crystalValue = (randInt(101) +19);
     //     updateDisplays();
