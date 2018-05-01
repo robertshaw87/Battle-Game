@@ -1,6 +1,6 @@
 # Battle Game
 
-The crystal core is overloading! Use the gems to syphon power from it until it stabilizes. Be care not to overdraw the energy! If the power level drops below 0, the crystal core will be unsalvageable.
+The Triwizard Tournament is having a dueling event this year! Select a champion and see how they fare!
 
 ## Getting Started
 
@@ -8,7 +8,7 @@ Open up the [project link](https://robertshaw87.github.io/Battle-Game/) and you 
 
 ![Battle Game](assets/images/readme-game.png "Battle Game")
 
-Simply click one of the gems to reduce the power of the crystal. Your goal is to reduce the crystal to 0 power without letting it fall into the negatives. Beware! The gems will syphon a random amount of power each time you reset!
+Simply click one of the champions to select your player character. Then you have a choice of which of the remaining champions you want to fight first. 
 ### Prerequisites
 
 You need to have a modern browser able to handle html5, javascript, and css. 
@@ -25,10 +25,6 @@ Edge
 ### Installing
 
 No installation needed! Just open the page in your preferred browser.
-
-### Behind the Scenes
-
-There are messages logged to the console if you want to see some of the debugging messages. Or cheat.
 
 ## Built With
 
