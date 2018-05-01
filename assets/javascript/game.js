@@ -164,7 +164,7 @@ $(document).ready(function() {
             adversary.defense = adversary.character.defense;
             adversary.updateDisplay();
             charSelect.bank.splice(parseInt($(this).attr("value")), 1);
-            charSelect.updateDisplay();
+            charSelect.resetDisplay();
             playerMessage("May the best wizard win!");
             addDuelBtn();
         }
@@ -178,16 +178,19 @@ $(document).ready(function() {
         // check if the player still has health left
         if (player.health <= 0){
             losses += 1;
+            updateWinLoss()
             playerMessage("You lost the duel! You came in " + placement[(charSelect.bank.length +1)] + " place in the dueling event!");
             var tempReset = setTimeout(gameReset, 3000);
         // check if the player has defeated the adversary
         } else if (adversary.health <= 0){
             playerMessage("You won the duel! Select your next opponent!");
             adversary.character=false;
+            charSelect.updateDisplay();
             removeDuelBtn();
             // check if the player has defeated all the opponents
             if (charSelect.bank.length <=0){
                 wins += 1;
+                updateWinLoss()
                 playerMessage("You've defeated all the other champions and won the dueling event!");
                 var tempReset = setTimeout(gameReset, 3000);
             }
