@@ -39,6 +39,7 @@ $(document).ready(function() {
 
     // used to store the order of the champions, order will be randomized later
     var champions = [harry, cedric, fleur, viktor];
+    var characterBank = champions.slice();
     
     // object used to store the player data and interact with the html
     var player={
@@ -65,6 +66,21 @@ $(document).ready(function() {
             $("#adversary-character").html(this.character.image+'<p class="centered-top m-0">'+this.character.name+'</p>'+'<p class="centered-bottom m-0">'+this.health+'</p>');
         }
     };
+
+    var characters={
+        bank: shuffleArr(champions.slice()),
+        resetDisplay: function(){
+
+        },
+        updateDisplay: function(){
+            for (var i=0; i<this.bank.length; i++){
+                
+            }
+        }
+    }
+    console.log(characters.bank);
+    
+    console.log(characters.bank);
     player.character=cedric;
     player.updateDisplay();
     adversary.character=fleur;
@@ -85,11 +101,20 @@ $(document).ready(function() {
         }
         return arr;
     }
+
+    // displays your current wins and losses
+    function updateWinLoss() {
+        $("#wins-text").text(wins);
+        $("#losses-text").text(losses);
+    }
     // game reset function
     // clear player character and adversaries
     // generate choices for player character
 
-    // function gameReset() {
+    function gameReset() {
+        updateWinLoss();
+        $("#character-bank")
+    }
 
 
 
