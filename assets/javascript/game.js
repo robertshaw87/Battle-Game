@@ -7,33 +7,33 @@ $(document).ready(function() {
     // initialize champions
     var harry = {
         name:"Harry Potter",
-        health: 200,
-        power: 5,
-        defense: 10,
+        health: 110,
+        power: 17,
+        defense: 5,
         image: '<img class="char-image" id="harry-img" src="assets/images/harry-potter.png" alt="Harry Potter" style="width:100%;">'
     }
 
     var cedric = {
         name:"Cedric Diggory",
-        health: 200,
-        power: 0,
-        defense: 10,
+        health: 150,
+        power: 5,
+        defense: 17,
         image: '<img class="char-image" id="cedric-img" src="assets/images/cedric-diggory.png" alt="Cedric Diggory" style="width:100%;">'
     }
 
     var fleur = {
         name:"Fleur Delacour",
-        health: 200,
-        power: 5,
-        defense: 10,
+        health: 120,
+        power: 9,
+        defense: 8,
         image: '<img class="char-image" id="fleur-img" src="assets/images/fleur-delacour.png" alt="Fleur Delacour" style="width:100%;">'
     }
 
     var viktor = {
         name:"Viktor Krum",
-        health: 200,
-        power: 5,
-        defense: 10,
+        health: 160,
+        power: 4,
+        defense: 21,
         image: '<img class="char-image" id="viktor-img" src="assets/images/viktor-krum.png" alt="Viktor Krum" style="width:100%;">'
     }
 
@@ -142,6 +142,7 @@ $(document).ready(function() {
         playerMessage("Select your Champion!");
     }
 
+    $("#harryPotterSong")[0].volume=.3;
     gameReset();
 
     // if player hasn't picked a character, pick a character from the bank
@@ -157,8 +158,8 @@ $(document).ready(function() {
             playerMessage("Select your opponent!");
         } else if (adversary.character === false) {
             adversary.character=charSelect.bank[parseInt($(this).attr("value"))];
-            adversary.health = player.character.health;
-            adversary.defense = player.character.defense;
+            adversary.health = adversary.character.health;
+            adversary.defense = adversary.character.defense;
             adversary.updateDisplay();
             charSelect.bank.splice(parseInt($(this).attr("value")), 1);
             charSelect.updateDisplay();
