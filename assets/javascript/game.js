@@ -2,11 +2,15 @@ $(document).ready(function() {
     // initialize variables
     var wins=0;
     var losses=0;
-    var crystalValue=0;
-    // number of gems to generate
-    var numGems=4;
-    // used to store the order of the gem images, order will be randomized later
-    var gemImages = ["0","1", "2", "3"];
+       
+    // used to store the order of the champions, order will be randomized later
+    var championsOrder = ["0","1", "2", "3"];
+    var champions = {
+        "0":"harry-potter",
+        "1":"cedric-diggory",
+        "2":"fleur-delacour",
+        "3":"viktor-krum"
+    }
 
     // returns a random integer between 0 and the argument(inclusive)
     function randInt(maxInt){
@@ -21,7 +25,6 @@ $(document).ready(function() {
             arr[i]=arr[j];
             arr[j]=temp;
         }
-
         return arr;
     }
     // game reset function

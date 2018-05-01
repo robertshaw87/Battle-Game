@@ -14,7 +14,7 @@
   <link rel="stylesheet" href="assets/css/style.css">
 
   <!-- Google Fonts -->
-  <link href="https://fonts.googleapis.com/css?family=East+Sea+Dokdo|Stylish|Yeon+Sung" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Acme|Tangerine" rel="stylesheet">
 
   <title>Triwizard Duel!</title>
 </head>
@@ -28,19 +28,19 @@
   <main class="container text-center">
   <!-- player character display -->
   <div class="row mt-5">
-    <div class="col-md-4 col-sm-5 col-12" id="player-character"></div>
+    <div class="col-md-4 col-sm-5 col-12 bg-light" id="player-character"></div>
     <div class="col"></div>
     <!-- duel button -->
     <button type="button" class="btn btn-dark btn-lg col-md-2 col-6" id="reset-button">Duel!</button>
     <div class="col"></div>
     <!-- adversary character display -->
-    <div class="col-md-4 col-sm-5 col-12" id="adversary-character"></div>
+    <div class="col-md-4 col-sm-5 col-12 bg-light" id="adversary-character"></div>
   </div>
 
   <!-- area for messages to the player -->
   <div class="row mt-5">
     <div class="col"></div>
-    <div class="col-md-6 col-12" id="player-message"></div>
+    <div class="col-md-6 col-12 text-light" id="player-message">Select your Champion!</div>
     <div class="col"></div>
   </div>
 
@@ -55,38 +55,30 @@
     <div class="col"></div>
   </div>
 
-<!-- messages to the player and wins/losses -->
+<!-- wins/losses -->
   <div class="row mt-5">
-    <!-- player message area -->
-    <div class="col-md-8 col-6 text-light pt-1" id="player-message">The crystal core is overloading! Use the gems provided to reduce its excess energy to 0. Beware of draining too much energy!</div>      
-    <div class="col-md-4 col-6">
-      <div class="row">
-        <!-- wins score card -->
-        <div class="card col-12 text-center score-card">
-          <div class="card-body text-light">
-            <div class="card-title">Wins</div>
-            <div class="card-text" id="wins-text">0</div>
-          </div>
-        </div>
-      </div>
-      <div class="row">
-        <!-- wins losses card -->
-          <div class="card col-12 text-center score-card">
-            <div class="card-body text-light">
-              <div class="card-title">Losses</div>
-              <div class="card-text" id="losses-text">0</div>
-            </div>
-          </div>      
+    <!-- wins score card -->
+    <div class="card col-md-4 col-5 text-center score-card">
+      <div class="card-body text-light">
+        <div class="card-title">Wins</div>
+        <div class="card-text" id="wins-text">0</div>
       </div>
     </div>
+    <div class="col-md-1 col"></div>
+    <div class="card col-md-4 col-5 text-center score-card">
+      <div class="card-body text-light">
+        <div class="card-title">Losses</div>
+        <div class="card-text" id="losses-text">0</div>
+      </div>
+    </div>
+    <div class="col-md-1 col"></div>  
+    <!-- reset button -->
+    <button type="button" class="btn btn-dark btn-lg col-2" id="reset-button">Give Up</button>
   </div>
 
-  <div class="row mt-5">
-      <div class="col"></div>
-      <!-- reset button -->
-      <button type="button" class="btn btn-dark btn-lg col-md-3 col-6" id="reset-button">Give Up</button>
-      <div class="col"></div>
-  </div>
+
+            
+
 
   </main>
 
