@@ -28,13 +28,15 @@
   <main class="container text-center">
   <!-- player character display -->
   <div class="row mt-5">
-    <div class="col-md-4 col-sm-5 col-12 bg-light" id="player-character"></div>
-    <div class="col"></div>
+    <div class="col-md-4 col-sm-5 col-8" id="player-character"><img class="char-image" id="harry-img" src="assets/images/harry-potter.png" alt="Harry Potter" style="width:100%;"></div>
+    <div class="col-md-1 col-sm-0 col-2"></div>
     <!-- duel button -->
-    <button type="button" class="btn btn-dark btn-lg col-md-2 col-6" id="reset-button">Duel!</button>
-    <div class="col"></div>
+    <div class="col-md-2 col-sm-2 col-8">
+      <button type="button" class="btn btn-dark btn-lg pr-3 pl-3" id="duel-button">Duel!</button>
+    </div>
+    <div class="col-md-1 col-sm-0 col-2"></div>
     <!-- adversary character display -->
-    <div class="col-md-4 col-sm-5 col-12 bg-light" id="adversary-character"></div>
+    <div class="col-md-4 col-sm-5 col-8" id="adversary-character"><img class="char-image" id="harry-img" src="assets/images/harry-potter.png" alt="Harry Potter" style="width:100%;"></div>
   </div>
 
   <!-- area for messages to the player -->
@@ -73,7 +75,9 @@
     </div>
     <div class="col-md-1 col"></div>  
     <!-- reset button -->
-    <button type="button" class="btn btn-dark btn-lg col-2" id="reset-button">Give Up</button>
+    <div class="col-2">
+    <button type="button" class="btn btn-dark btn-lg p-3 centered" id="reset-button">Give Up</button>
+    </div>
   </div>
 
 

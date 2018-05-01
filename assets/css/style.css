@@ -5,7 +5,6 @@ body {
     background-position: 50% 0%; 
     background-repeat: no-repeat;
     /* background-size: contain; */
-    opacity: .9;
 }
 
 
@@ -46,7 +45,7 @@ header {
 }
 
 /* make the reset/give up button fit the rest of the page in terms of color scheme */
-#reset-button {
+.btn {
     font-family: 'Acme', sans-serif;
     background-color: rgba(0, 0, 0, 0.7);
 }
