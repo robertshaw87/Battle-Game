@@ -8,7 +8,9 @@ Open up the [project link](https://robertshaw87.github.io/Battle-Game/) and you 
 
 ![Battle Game](assets/images/readme-game.png "Battle Game")
 
-Simply click one of the champions to select your player character. Then you have a choice of which of the remaining champions you want to fight first. 
+Simply click one of the champions to select your player character. Then you have a choice of which of the remaining champions you want to fight first. Keep in mind that you will slowly build up momentum as you duel, so try to find the weaker opponents first!
+
+If you're not feeling confident about your chances, you can always choose to forfeit the event. 
 ### Prerequisites
 
 You need to have a modern browser able to handle html5, javascript, and css. 
