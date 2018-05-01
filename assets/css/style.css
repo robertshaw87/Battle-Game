@@ -4,7 +4,7 @@ body {
     background-color: black;
     background-position: 50% 0%; 
     background-repeat: no-repeat;
-    /* background-size: contain; */
+    background-size: cover;
 }
 
 
@@ -26,6 +26,29 @@ header {
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+}
+
+.centered-top{
+    position: absolute;
+    top:0px;
+    left: 50%;
+    font-size: 45px;
+    font-weight: bold;
+    transform: translate(-50%, 0%);
+}
+
+.centered-bottom{
+    position: absolute;
+    bottom: 0px;
+    left: 50%;
+    font-size: 80px;
+    font-weight: bold;
+    transform: translate(-50%, 0%);
+}
+
+#player-character {
+    font-family: 'Tangerine', cursive;
+    position: relative;
 }
 
 /* sets font and translucent background for messages to the player */

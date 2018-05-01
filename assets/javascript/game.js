@@ -52,10 +52,14 @@ $(document).ready(function() {
     var player={
         character: false,
         resetDisplay: function(){
-            $("#player-character")
+            $("#player-character").empty();
+        },
+        updateDisplay: function(){
+            $("#player-character").html(this.character.image+'<p class="centered-top m-0">'+this.character.name+'</p>'+'<h3 class="centered-bottom">'+this.character.health+'</h3>');
         }
     };
-    var opponent=false;
+    player.character=fleur;
+    player.updateDisplay();
 
     // returns a random integer between 0 and the argument(inclusive)
     function randInt(maxInt){
