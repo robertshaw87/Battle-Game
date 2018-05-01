@@ -151,11 +151,16 @@ header {
     }
 }
 
+.duel {
+    background-color: rgba(0, 0, 0, 0.7);
+    opacity: .8;
+}
+
 .duel:hover {
     background-image: url("../images/duel.gif");
     background-position: 50% 0%; 
     background-repeat: no-repeat;
     background-size: cover;
-    background-color: rgba(0, 0, 0, 0.7);
+    background-color: rgba(0, 0, 0, 0);
     opacity: .8;
 }
