@@ -16,7 +16,7 @@ $(document).ready(function() {
     var cedric = {
         name:"Cedric Diggory",
         health: 200,
-        power: 5,
+        power: 0,
         defense: 10,
         image: '<img class="char-image" id="cedric-img" src="assets/images/cedric-diggory.png" alt="Cedric Diggory" style="width:100%;">'
     }
@@ -39,6 +39,7 @@ $(document).ready(function() {
 
     // used to store the order of the champions, order will be randomized later
     var champions = [harry, cedric, fleur, viktor];
+    var placement = ["first", "second", "third", "fourth"];
     var characterBank = champions.slice();
     
     // object used to store the player data and interact with the html
@@ -171,10 +172,22 @@ $(document).ready(function() {
         player.health -= adversary.defense;
         adversary.health -= player.power;
         player.power += player.character.power;
+        // check if the player still has health left
         if (player.health <= 0){
-            playerMessage("You lost the duel! You came in " + (charSelect.bank.length +2) + " place in the dueling event!");
+            losses += 1;
+            playerMessage("You lost the duel! You came in " + placement[(charSelect.bank.length +1)] + " place in the dueling event!");
             var tempReset = setTimeout(gameReset, 2000);
-            var tempMessage = setTimeout(gameReset, 2000);
+        // check if the player has defeated the adversary
+        } else if (adversary.health <= 0){
+            playerMessage("You won the duel! Select your next opponent!");
+            adversary.character=false;
+            removeDuelBtn();
+            // check if the player has defeated all the opponents
+            if (charSelect.bank.length <=0){
+                wins += 1;
+                playerMessage("You've defeated all the other champions and won the dueling event!");
+                var tempReset = setTimeout(gameReset, 2000);
+            }
         }
         adversary.updateDisplay();
         player.updateDisplay();
@@ -187,68 +200,4 @@ $(document).ready(function() {
         playerMessage("You have forfeited the duel. Choose a new champion!");        
     });
     
-    //     $("#gem-row").empty();
-    //     crystalValue = (randInt(101) +19);
-    //     updateDisplays();
-    //     // create a list of 4 unique random ints between 1 and 12 for the gems
-    //     var gemArray = [];
-    //     for (var i=0; i<numGems; i++){
-    //         var tempInt;
-    //         do {
-    //             tempInt=1 + randInt(11);
-    //         } while (gemArray.indexOf(tempInt) !== -1);
-    //         gemArray.push(tempInt);
-    //     }
-    //     // ensure that there is always a gem with value 1 so the game is solveable
-    //     if (gemArray.indexOf(1) === -1) {
-    //         gemArray[randInt(3)]=1;
-    //     }
-    //     // randomize the order of the gem images
-    //     gemImages = shuffleArr(gemImages);
-    //     for (var i=0; i<gemArray.length; i++) {
-    //         var tempGem=$("<div>");
-    //         tempGem.attr("class", "col-3 gem");
-    //         tempGem.attr("id","gem"+i);
-    //         tempGem.attr("value", gemArray[i]);
-    //         tempGem.html('<img class="gem-image" id="gem'+gemImages[i]+'-img" src="assets/images/gem'+gemImages[i]+'.png" alt="gem'+gemImages[i]+'" style="width:100%;">');
-    //         $("#gem-row").append(tempGem);
-    //     }
-    // }
-
-    // // update displays of values
-    // function updateDisplays() {
-    //     $("#wins-text").text(wins);
-    //     $("#losses-text").text(losses);
-    //     $("#crystal-core-text").text(crystalValue);
-    // }
-
-    // // reset the game upon page load
-    // gameReset();
-
-    // // listen to click on gems
-    // $("#gem-row").on("click", ".gem", function(){
-    //     $("#player-message").empty()
-    //     // subtract value of clicked gem from crystal
-    //     crystalValue -= parseInt($(this).attr("value"));
-    //     // if crystal is 0, win
-    //     if (crystalValue === 0) {
-    //         wins+=1;
-    //         gameReset();
-    //         $("#player-message").text("You won! Congratulations!");
-    //     // if crystal is less than 0, lose
-    //     } else if (crystalValue <= 0) {
-    //         losses+=1;
-    //         gameReset();
-    //         $("#player-message").text("You lost! You drained too much energy from the crystal!");
-    //         // else, update crystal value
-    //     } else {
-    //         updateDisplays();
-    //     }
-    // });
-    // // if reset button clicked, reset values to default and generate a new puzzle (counts as a loss)
-    // $("#reset-button").on("click", function(){
-    //     losses += 1;
-    //     gameReset();
-    //     $("#player-message").text("You gave up on the puzzle. Good luck on this one!");        
-    // });
 });
