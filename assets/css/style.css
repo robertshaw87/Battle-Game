@@ -30,7 +30,6 @@ header {
 
 .centered-top, .centered-bottom{
     position: absolute;
-    font-size: 60px;
     width: 100%;
     padding: 0;
     background-color: rgba(0, 0, 0, 0.5);
@@ -47,6 +46,14 @@ header {
     left: 50%;
     font-weight: bold;
     transform: translate(-50%, 0%);
+}
+
+.active-char{
+    font-size: 60px;
+}
+
+.bank-char {
+    font-size: 50px;
 }
 
 #player-character, #adversary-character {

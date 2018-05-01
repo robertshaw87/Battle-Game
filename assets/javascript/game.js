@@ -50,7 +50,7 @@ $(document).ready(function() {
             $("#player-character").empty();
         },
         updateDisplay: function(){
-            $("#player-character").html(this.character.image+'<p class="centered-top m-0">'+this.character.name+'</p>'+'<p class="centered-bottom m-0">'+this.health+'</p>');
+            $("#player-character").html(this.character.image+'<p class="active-char centered-top m-0">'+this.character.name+'</p>'+'<p class="active-char centered-bottom m-0">'+this.health+'</p>');
         }
     };
 
@@ -63,7 +63,7 @@ $(document).ready(function() {
             $("#adversary-character").empty();
         },
         updateDisplay: function(){
-            $("#adversary-character").html(this.character.image+'<p class="centered-top m-0">'+this.character.name+'</p>'+'<p class="centered-bottom m-0">'+this.health+'</p>');
+            $("#adversary-character").html(this.character.image+'<p class="active-char centered-top m-0">'+this.character.name+'</p>'+'<p class="active-char centered-bottom m-0">'+this.health+'</p>');
         }
     };
 
@@ -73,8 +73,12 @@ $(document).ready(function() {
 
         },
         updateDisplay: function(){
-            for (var i=0; i<this.bank.length; i++){
-                
+            if (this.bank.length <= 0){
+                $("#character-bank").empty();
+            } else{
+                for (var i=0; i<this.bank.length; i++){
+                    $("#character-bank").append(this.bank[i].image+'<p class="bank-char centered-top m-0">'+this.character.name+'</p>'+'<p class="bank-char centered-bottom m-0">'+this.health+'</p>');
+                }
             }
         }
     }
