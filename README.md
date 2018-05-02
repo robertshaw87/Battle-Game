@@ -30,6 +30,8 @@ No installation needed! Just open the page in your preferred browser.
 
 ## Built With
 
+* Html, CSS, and Javascript
+
 * [BootstrapCDN v4.1.0](https://getbootstrap.com/docs/4.1/getting-started/introduction/) - The web framework used
 
 * [jQuery v3.3.1](http://jquery.com/) - Java library for DOM and CSS manipulation
