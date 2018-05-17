@@ -34,6 +34,10 @@ No installation needed! Just open the page in your preferred browser.
 
 * [Google Fonts](https://fonts.google.com/) - Font repository
 
+## Challenges
+
+jQuery is already feeling like an essential part of my toolkit now. I had a lot of fun trying to user-proof this game while still maintaining accessibility. In the end, I'm very happy with the look and feel of this.
+
 ## Authors
 
 * **Robert Shaw** - *Initial work* - [robertshaw87](https://github.com/robertshaw87)
