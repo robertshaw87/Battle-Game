@@ -38,6 +38,14 @@ No installation needed! Just open the page in your preferred browser.
 
 jQuery is already feeling like an essential part of my toolkit now. I had a lot of fun trying to user-proof this game while still maintaining accessibility. In the end, I'm very happy with the look and feel of this.
 
+![Player Object](assets/images/player-object.PNG "Player Object")
+
+I stored player data and functions to display the player character into an object. It made the dynamic generation of elements a lot less messy and much easier to parse when I was going through my code.
+
+![Character Bank](assets/images/character-bank.PNG "Character Bank")
+
+I only display the character bank when the player is picking a character. This reduces visual clutter and possibilities for user error. It meant those elements are being dynamically generated each time, creating a cleaner user experience.
+
 ## Authors
 
 * **Robert Shaw** - *Initial work* - [robertshaw87](https://github.com/robertshaw87)
